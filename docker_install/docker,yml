@@ -1,0 +1,14 @@
+---
+- name: Setup Proxy
+  hosts: docker_hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  #gather_facts: no
+  vars:
+    selinux_state: permissive                            # SELinux state to be set on k8s nodes                 
+    timezone: "America/Fortaleza"                        # Timezone to set on all nodes
+    configure_firewalld: false                           # true / false (keep it false, firewalld)
+    plataform: "RedHat"                                  #  "RedHat" ou "Ubuntu"
+  roles:
+    - docker_bootstrap
