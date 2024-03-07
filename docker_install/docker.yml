@@ -4,11 +4,11 @@
   remote_user: root
   become: yes
   become_method: sudo
-  #gather_facts: no
+  gather_facts: yes
   vars:
     selinux_state: permissive                            # SELinux state to be set on k8s nodes                 
     timezone: "America/Fortaleza"                        # Timezone to set on all nodes
     configure_firewalld: false                           # true / false (keep it false, firewalld)
-    plataform: "RedHat"                                  #  "RedHat" ou "Ubuntu"
+    plataform: "Fedora"                                  #  "RedHat" , "Ubuntu" ou "Fedora"
   roles:
-    - docker_bootstrap
+    - docker-bootstrap

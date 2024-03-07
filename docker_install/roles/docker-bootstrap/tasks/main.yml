@@ -1,0 +1,14 @@
+---
+- name: Add the OS specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
+    - "{{ ansible_os_family }}.yml"
+
+- name: Include Pre-reqs setup task
+  include_tasks: setup.yml
+
+
+- name: Include task to configure docker
+  include_tasks: setup_docker.yml
+  
