@@ -1,0 +1,11 @@
+---
+- name: Update system packages
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install some packages needed to configure the nodes
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  loop:
+    - "{{ basic_packages }}"

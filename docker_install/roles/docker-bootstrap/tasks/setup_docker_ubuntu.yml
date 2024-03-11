@@ -1,0 +1,24 @@
+---
+- name: Adicionar a chave GPG oficial do Docker
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Adicionar o repositório do Docker ao APT
+  apt_repository:
+    repo: deb  https://download.docker.com/linux/ubuntu jammy stable
+    state: present
+    update_cache: true 
+
+- name: Install supported version of docker
+  ansible.builtin.apt:
+    name: [docker-ce]
+    state: present
+
+- name: Install supported version of docker-compose
+  ansible.builtin.apt:
+    name: [docker-compose]
+    state: present
+
+
+  

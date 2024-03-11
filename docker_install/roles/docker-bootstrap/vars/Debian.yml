@@ -1,0 +1,7 @@
+---
+basic_packages:
+  - vim
+  - bash-completion
+  - wget
+  - curl
+  - ca-certificates

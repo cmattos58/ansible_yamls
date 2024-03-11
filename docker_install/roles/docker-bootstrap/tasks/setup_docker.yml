@@ -2,7 +2,7 @@
 - name: Add docker repository
   get_url:
     url: https://download.docker.com/linux/fedora/docker-ce.repo
-    dest: /etc/yum.repos.d/docer-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
 
 - name: Install supported version of docker
   ansible.builtin.package:
@@ -34,7 +34,9 @@
     name: docker
     state: restarted
     daemon_reload: yes
-    
-- name: Atribuindo permissao ao usuario comum 
-  become:  yes
+
+# - name: Atribuindo permissao ao usuario comum 
+#   become:  yes
+#   become_user: cmattos
+#   become_method: su
   

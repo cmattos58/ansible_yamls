@@ -7,8 +7,17 @@
 
 - name: Include Pre-reqs setup task
   include_tasks: setup.yml
+  when:  plataform == "Fedora"
 
 
 - name: Include task to configure docker
   include_tasks: setup_docker.yml
-  
+  when:  plataform == "Fedora"
+
+- name: Include Pre-reqs setup Ubuntu task
+  include_tasks: setup_ubuntu.yml
+  when:  plataform == "Ubuntu"
+
+- name: Include task to configure Ubuntu docker
+  include_tasks: setup_docker_ubuntu.yml
+  when:  plataform == "Ubuntu"

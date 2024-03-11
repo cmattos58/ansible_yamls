@@ -11,3 +11,6 @@
 
 - Primeiro pacote de yamls para instalação basica
 
+## Comandos basicos
+
+- ansible-playbook docker.yml -i hosts
